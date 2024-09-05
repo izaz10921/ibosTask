@@ -1,14 +1,44 @@
 [
   {
     "id": 1,
-    "name": "Product 1",
-    "description": "This is product 1",
-    "price": 10.99
+    "image": "https://i.ibb.co/c876JDG/ch1.png",
+    "name": "Modern Office Chair",
+    "price": 120.99,
+    "description": "A sleek and modern office chair with ergonomic support and adjustable height for comfort during long working hours."
   },
   {
     "id": 2,
-    "name": "Product 2",
-    "description": "This is product 2",
-    "price": 15.99
+    "image": "https://i.ibb.co/XDQ6dmw/ch2.png",
+    "name": "Leather Executive Chair",
+    "price": 250.00,
+    "description": "This luxurious leather executive chair offers premium comfort and style with a high backrest and padded armrests."
+  },
+  {
+    "id": 3,
+    "image": "https://i.ibb.co/yySsg1S/ch3.png",
+    "name": "Minimalist Dining Chair",
+    "price": 75.50,
+    "description": "A stylish, minimalist dining chair with a wooden frame and cushioned seat, perfect for a contemporary dining setup."
+  },
+  {
+    "id": 4,
+    "image": "https://i.ibb.co/8BZVrkC/ch4.png",
+    "name": "Classic Rocking Chair",
+    "price": 180.99,
+    "description": "A traditional wooden rocking chair with a curved base, ideal for relaxing and adding a vintage touch to your living room."
+  },
+  {
+    "id": 5,
+    "image": "https://i.ibb.co/V2jYR4p/ch5.png",
+    "name": "Outdoor Patio Chair",
+    "price": 45.00,
+    "description": "Durable and weather-resistant, this outdoor patio chair is perfect for enjoying the outdoors with a comfortable mesh seat."
+  },
+  {
+    "id": 6,
+    "image": "https://i.ibb.co/KWDTbLc/ch6.png",
+    "name": "Scandinavian Lounge Chair",
+    "price": 230.50,
+    "description": "A beautiful Scandinavian-inspired lounge chair with a wide seat, wooden legs, and soft upholstery for ultimate relaxation."
   }
 ]
