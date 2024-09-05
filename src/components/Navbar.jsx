@@ -1,12 +1,52 @@
-
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   return (
     <div className="navbar bg-base-100">
-      <div className="flex-1">
-        <a className="btn btn-ghost text-xl">daisyUI</a>
-      </div>
+      {/* Left Section - Logo */}
       <div className="flex-none">
+        <a className="btn btn-ghost">
+          <img
+            src="https://i.ibb.co/cT6Vq9B/logo.png"  // Logo Image
+            alt="Logo"
+            className="h-10"
+          />
+        </a>
+      </div>
+
+      {/* Middle Section - Centered Tabs */}
+      <div className="flex-1 flex justify-center">
+        <ul className="menu menu-horizontal px-1">
+          <li>
+            <NavLink
+              to="/"
+              className={({ isActive }) => (isActive ? 'active-tab' : '')}
+            >
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/products"
+              className={({ isActive }) => (isActive ? 'active-tab font-bold' : 'font-bold')}
+            >
+              Products
+            </NavLink>
+          </li>
+          <li>
+            <a>Categories</a>
+          </li>
+          <li>
+            <a>Custom</a>
+          </li>
+          <li>
+            <a>Blog</a>
+          </li>
+        </ul>
+      </div>
+
+      {/* Right Section - Cart & Profile */}
+      <div className="flex-none flex items-center space-x-4">
         {/* Dropdown for the cart */}
         <div className="dropdown dropdown-end">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
@@ -47,7 +87,7 @@ const Navbar = () => {
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
               <img
-                alt="Tailwind CSS Navbar component"
+                alt="User Avatar"
                 src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
               />
             </div>
@@ -62,12 +102,8 @@ const Navbar = () => {
                 <span className="badge">New</span>
               </a>
             </li>
-            <li>
-              <a>Settings</a>
-            </li>
-            <li>
-              <a>Logout</a>
-            </li>
+            <li><a>Settings</a></li>
+            <li><a>Logout</a></li>
           </ul>
         </div>
       </div>
