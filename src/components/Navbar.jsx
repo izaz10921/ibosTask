@@ -1,9 +1,14 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { CartContext } from '../context/CartContext';  // Import CartContext
 
 const Navbar = () => {
   const { cart } = useContext(CartContext);  // Access cart items from CartContext
+  const navigate = useNavigate();  // Hook for programmatic navigation
+
+  const handleViewCart = () => {
+    navigate('/cart');  // Navigate to the Cart page
+  };
 
   return (
     <div className="navbar bg-base-100">
@@ -53,7 +58,7 @@ const Navbar = () => {
           <div tabIndex={0} className="card card-compact dropdown-content bg-base-100 z-[1] mt-3 w-52 shadow">
             <div className="card-body">
               <div className="card-actions">
-                <button className="btn btn-primary btn-block">View cart</button>
+                <button onClick={handleViewCart} className="btn btn-primary btn-block">View cart</button> {/* Trigger navigation */}
               </div>
             </div>
           </div>
