@@ -2,11 +2,11 @@ import { useContext } from 'react';
 import { CartContext } from '../context/CartContext';  // Import CartContext
 
 const Cart = () => {
-  const { cart, removeFromCart } = useContext(CartContext);  // Access cart items from CartContext
+  const { cart, removeFromCart, incrementQuantity, decrementQuantity } = useContext(CartContext);  // Access cart items and functions
 
   return (
     <div className="overflow-x-auto">
-      <h1 className='text-3xl font-semibold mb-5'>An overview of your order</h1>
+      <h1 className="text-3xl font-semibold mb-5 pl-4">An overview of your order</h1>
       <table className="table">
         {/* Table Head */}
         <thead>
@@ -14,6 +14,7 @@ const Cart = () => {
             <th></th>
             <th>Product</th>
             <th>Price</th>
+            <th>Quantity</th>
             <th></th>
           </tr>
         </thead>
@@ -35,8 +36,30 @@ const Cart = () => {
                 </div>
               </td>
               <td>${product.price}</td>
+              <td>
+                <div className="flex items-center">
+                  {/* Decrement Quantity */}
+                  <button
+                    onClick={() => decrementQuantity(product.id)}
+                    className="btn btn-xs btn-secondary"
+                  >
+                    -
+                  </button>
+                  <span className="mx-2">{product.quantity}</span>
+                  {/* Increment Quantity */}
+                  <button
+                    onClick={() => incrementQuantity(product.id)}
+                    className="btn btn-xs btn-secondary"
+                  >
+                    +
+                  </button>
+                </div>
+              </td>
               <th>
-                <button onClick={() => removeFromCart(product.id)} className="btn btn-ghost btn-xs">
+                <button
+                  onClick={() => removeFromCart(product.id)}
+                  className="btn btn-ghost btn-xs"
+                >
                   Remove
                 </button>
               </th>
