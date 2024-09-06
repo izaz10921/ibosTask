@@ -1,12 +1,13 @@
-import  { useState, useEffect } from 'react';
-import productsData from '../api/products.json'; // Import the JSON file
+import { useState, useEffect, useContext } from 'react';
+import productsData from '../api/products.json';  // Import the JSON file
+import { CartContext } from '../context/CartContext';  // Import CartContext
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
+  const { addToCart } = useContext(CartContext);  // Access addToCart from CartContext
 
-  // Simulate fetching data from the JSON file
   useEffect(() => {
-    setProducts(productsData); // Set the imported products data
+    setProducts(productsData);  // Set the imported products data
   }, []);
 
   return (
@@ -21,7 +22,10 @@ const ProductList = () => {
             <p>{product.description}</p>
             <p className="font-bold">${product.price}</p>
             <div className="card-actions">
-              <button className="btn btn-primary">Add to cart</button>
+              {/* Add to Cart Button */}
+              <button onClick={() => addToCart(product)} className="btn btn-primary">
+                Add to cart
+              </button>
             </div>
           </div>
         </div>
