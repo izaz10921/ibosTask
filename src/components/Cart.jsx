@@ -2,10 +2,11 @@ import { useContext } from 'react';
 import { CartContext } from '../context/CartContext';  // Import CartContext
 
 const Cart = () => {
-  const { cart } = useContext(CartContext);  // Access cart items from CartContext
+  const { cart, removeFromCart } = useContext(CartContext);  // Access cart items from CartContext
 
   return (
     <div className="overflow-x-auto">
+      <h1 className='text-3xl font-semibold mb-5'>An overview of your order</h1>
       <table className="table">
         {/* Table Head */}
         <thead>
@@ -35,7 +36,9 @@ const Cart = () => {
               </td>
               <td>${product.price}</td>
               <th>
-                <button className="btn btn-ghost btn-xs">Remove</button>
+                <button onClick={() => removeFromCart(product.id)} className="btn btn-ghost btn-xs">
+                  Remove
+                </button>
               </th>
             </tr>
           ))}

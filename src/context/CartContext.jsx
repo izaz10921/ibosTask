@@ -6,12 +6,14 @@ export const CartContext = createContext();
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
+  // Add to cart function
   const addToCart = (product) => {
-    setCart([...cart, product]);
+    setCart((prevCart) => [...prevCart, product]);
   };
 
+  // Remove from cart function (optional)
   const removeFromCart = (id) => {
-    setCart(cart.filter((product) => product.id !== id));
+    setCart((prevCart) => prevCart.filter((product) => product.id !== id));
   };
 
   return (
@@ -20,8 +22,9 @@ const CartProvider = ({ children }) => {
     </CartContext.Provider>
   );
 };
+
 CartProvider.propTypes = {
-    children: PropTypes.node.isRequired, // Step 3: Add validation for children prop
-  };
+  children: PropTypes.node.isRequired,
+};
 
 export default CartProvider;
