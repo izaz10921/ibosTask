@@ -6,6 +6,14 @@ const Navbar = () => {
   const { cart } = useContext(CartContext);  // Access cart items from CartContext
   const navigate = useNavigate();  // Hook for programmatic navigation
 
+  // Handle Logout
+  const handleLogout = () => {
+    // Clear any necessary user data here (e.g., session storage, cookies, etc.)
+    
+    // Navigate to SignUp page
+    navigate('/signup');
+  };
+
   const handleViewCart = () => {
     navigate('/cart');  // Navigate to the Cart page
   };
@@ -72,7 +80,7 @@ const Navbar = () => {
             </div>
           </div>
           <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-            <li><a>Logout</a></li>
+            <li><a onClick={handleLogout}>Logout</a></li> {/* Call handleLogout on click */}
           </ul>
         </div>
       </div>
