@@ -6,7 +6,6 @@ export const CartContext = createContext();
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
-  // Add to cart function
   const addToCart = (product) => {
     setCart((prevCart) => {
       const existingProduct = prevCart.find((item) => item.id === product.id);
@@ -22,12 +21,10 @@ const CartProvider = ({ children }) => {
     });
   };
 
-  // Remove from cart function
   const removeFromCart = (id) => {
     setCart(cart.filter((product) => product.id !== id));
   };
 
-  // Increment quantity function
   const incrementQuantity = (id) => {
     setCart((prevCart) =>
       prevCart.map((product) =>
@@ -38,7 +35,7 @@ const CartProvider = ({ children }) => {
     );
   };
 
-  // Decrement quantity function
+
   const decrementQuantity = (id) => {
     setCart((prevCart) =>
       prevCart
@@ -47,7 +44,7 @@ const CartProvider = ({ children }) => {
             ? { ...product, quantity: product.quantity - 1 }
             : product
         )
-        .filter((product) => product.quantity > 0) // Remove products with 0 quantity
+        .filter((product) => product.quantity > 0) 
     );
   };
 

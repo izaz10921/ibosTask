@@ -17,7 +17,7 @@ const AuthProvider = ({ children }) => {
   );
 };
 AuthProvider.propTypes = {
-    children: PropTypes.node.isRequired, // Step 3: Define that 'children' must be a React node
+    children: PropTypes.node.isRequired, 
   };
 
 export default AuthProvider;

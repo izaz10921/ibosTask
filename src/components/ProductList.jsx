@@ -1,13 +1,13 @@
 import { useState, useEffect, useContext } from 'react';
-import productsData from '../api/products.json';  // Import the JSON file
-import { CartContext } from '../context/CartContext';  // Import CartContext
+import productsData from '../api/products.json'; 
+import { CartContext } from '../context/CartContext';  
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
-  const { addToCart } = useContext(CartContext);  // Access addToCart from CartContext
+  const { addToCart } = useContext(CartContext);  
 
   useEffect(() => {
-    setProducts(productsData);  // Set the imported products data
+    setProducts(productsData); 
   }, []);
 
   return (
@@ -22,7 +22,6 @@ const ProductList = () => {
             <p>{product.description}</p>
             <p className="font-bold">${product.price}</p>
             <div className="card-actions">
-              {/* Add to Cart Button */}
               <button onClick={() => addToCart(product)} className="btn btn-primary">
                 Add to cart
               </button>

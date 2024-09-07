@@ -8,7 +8,6 @@ const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    // Fetching from local JSON file (can be replaced with API URL)
     axios.get('/api/products.json').then((response) => {
       setProducts(response.data);
     });
@@ -21,7 +20,7 @@ const ProductProvider = ({ children }) => {
   );
 };
 ProductProvider.propTypes = {
-    children: PropTypes.node.isRequired, // Step 3: Add validation for children prop
+    children: PropTypes.node.isRequired, 
   };
 
 export default ProductProvider;

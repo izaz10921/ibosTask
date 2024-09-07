@@ -1,15 +1,16 @@
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';  
+import Footer from './components/Footer'; 
 import Login from './components/Login';    
 import SignUp from './components/SignUp';   
 import ProductList from './components/ProductList';  
-import Cart from './components/Cart';  // Import Cart component
-import CartProvider from './context/CartContext';  // Import CartProvider
+import Cart from './components/Cart'; 
+import CartProvider from './context/CartContext';  
 
-// Main App component
+
 function App() {
   return (
-    <CartProvider> {/* Wrap app with CartProvider */}
+    <CartProvider> 
       <Router>
         <Layout />
       </Router>
@@ -17,25 +18,28 @@ function App() {
   );
 }
 
-// Layout component to conditionally render Navbar based on the route
+
 const Layout = () => {
   const location = useLocation();
 
-  // Conditionally render the Navbar: Hide on /login and /signup
   const showNavbar = !['/login', '/signup'].includes(location.pathname);
+  const showFooter = showNavbar;  
 
   return (
-    <>
-      {showNavbar && <Navbar />}  {/* Conditionally show Navbar */}
-      <Routes>
-        <Route path="/" element={<Navigate to="/signup" />} />  {/* Redirect root to SignUp */}
-        <Route path="/signup" element={<SignUp />} />  {/* SignUp page */}
-        <Route path="/login" element={<Login />} />    {/* Login page */}
-        <Route path="/products" element={<ProductList />} />  {/* Product List page */}
-        <Route path="/cart" element={<Cart />} />  {/* Cart page */}
-        <Route path="*" element={<h1 className="text-center mt-10">404: Page Not Found</h1>} />  {/* Catch-all route */}
-      </Routes>
-    </>
+    <div className="flex flex-col min-h-screen">  
+      {showNavbar && <Navbar />}  
+      <div className="flex-grow">  
+        <Routes>
+          <Route path="/" element={<Navigate to="/signup" />} /> 
+          <Route path="/signup" element={<SignUp />} />  
+          <Route path="/login" element={<Login />} />    
+          <Route path="/products" element={<ProductList />} />  
+          <Route path="/cart" element={<Cart />} />  
+          <Route path="*" element={<h1 className="text-center mt-10">404: Page Not Found</h1>} />  
+        </Routes>
+      </div>
+      {showFooter && <Footer />} 
+    </div>
   );
 };
 

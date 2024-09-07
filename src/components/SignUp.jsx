@@ -25,13 +25,12 @@ const SignUp = () => {
             return;
         }
 
-        // Store user data in localStorage (For demonstration purposes)
         localStorage.setItem(
             'user',
             JSON.stringify({ name, email, password })
         );
 
-        // Reset form after successful signup
+        
         setFormData({
             name: '',
             email: '',
@@ -39,7 +38,6 @@ const SignUp = () => {
             confirmPassword: '',
         });
 
-        // Navigate to login page after successful signup
         navigate('/login');
     };
 
@@ -50,8 +48,6 @@ const SignUp = () => {
     return (
         <div className="flex flex-col md:flex-row h-screen">
 
-
-            {/* Form Section */}
             <div className="md:w-1/2 flex items-center justify-center p-10">
                 <div className="w-full max-w-md">
                     <h1 className="text-3xl font-bold text-center mb-6">Sign Up</h1>
@@ -95,7 +91,6 @@ const SignUp = () => {
                 </div>
             </div>
 
-            {/* Image Section */}
             <div className="md:w-1/2 bg-cover" style={{ backgroundImage: `url('https://i.ibb.co/McsHGS3/photo-1590608897129-79f0904f17a1.webp')` }}>
             </div>
         </div>

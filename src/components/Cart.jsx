@@ -1,28 +1,25 @@
 import { useContext } from 'react';
-import { CartContext } from '../context/CartContext';  // Import CartContext
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for checkout
+import { CartContext } from '../context/CartContext'; 
+import { useNavigate } from 'react-router-dom'; 
 
 const Cart = () => {
-  const { cart, removeFromCart, incrementQuantity, decrementQuantity } = useContext(CartContext);  // Access cart items and functions
-  const navigate = useNavigate();  // To navigate to checkout
+  const { cart, removeFromCart, incrementQuantity, decrementQuantity } = useContext(CartContext); 
+  const navigate = useNavigate();  
 
-  // Calculate the subtotal
   const subtotal = cart.reduce((acc, product) => acc + product.price * product.quantity, 0);
 
-  // Handle Go to Checkout
   const handleCheckout = () => {
-    navigate('/checkout');  // Redirect to checkout page (implement checkout page)
+    navigate('/checkout');  
   };
 
   return (
     <div className="container mx-auto p-5">
       <div className="grid grid-cols-3 gap-6">
-        {/* Cart Table (2/3 of the page) */}
+        
         <div className="col-span-2">
           <h1 className="text-3xl font-semibold mb-5">Your Shopping Cart</h1>
           <div className="overflow-x-auto">
             <table className="table w-full">
-              {/* Table Head */}
               <thead>
                 <tr>
                   <th></th>
@@ -33,7 +30,6 @@ const Cart = () => {
                 </tr>
               </thead>
               <tbody>
-                {/* Display Cart Items */}
                 {cart.map((product, index) => (
                   <tr key={product.id}>
                     <th>{index + 1}</th>
@@ -52,7 +48,6 @@ const Cart = () => {
                     <td>${product.price}</td>
                     <td>
                       <div className="flex items-center">
-                        {/* Decrement Quantity */}
                         <button
                           onClick={() => decrementQuantity(product.id)}
                           className="btn btn-xs btn-secondary"
@@ -60,7 +55,6 @@ const Cart = () => {
                           -
                         </button>
                         <span className="mx-2">{product.quantity}</span>
-                        {/* Increment Quantity */}
                         <button
                           onClick={() => incrementQuantity(product.id)}
                           className="btn btn-xs btn-secondary"
@@ -84,7 +78,7 @@ const Cart = () => {
           </div>
         </div>
 
-        {/* Order Details (1/3 of the page) */}
+      
         <div className="col-span-1 p-5 bg-gray-100 rounded-lg shadow-lg">
           <h2 className="text-2xl font-semibold mb-4">Order Summary</h2>
           <div className="flex justify-between mb-2">
